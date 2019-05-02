@@ -1,0 +1,122 @@
+SET search_path = airport, public;
+
+insert into air_company values (74, 'American Airlines Group');
+insert into air_company values (34, 'United Continental Holdings');
+insert into air_company values (15, 'Air France');
+insert into air_company values (70, 'International Airlines Group');
+insert into air_company values (49, 'Emirates');
+
+insert into plane values (5324, 'Airbus-A310', 74);
+insert into plane values (7826, 'Airbus-A319', 74);
+insert into plane values (1488, 'Boeing-737', 49);
+insert into plane values (4733, 'Boeing-747', 49);
+insert into plane values (1198, 'Boeing-767', 49);
+insert into plane values (9354, 'Boeing-777', 34);
+insert into plane values (1462, 'Boeing-777', 34);
+insert into plane values (6648, 'Boeing-777', 34);
+insert into plane values (2826, 'Boeing-737', 15);
+insert into plane values (5649, 'Boeing-767', 15);
+insert into plane values (4338, 'Airbus-A310', 70);
+insert into plane values (9904, 'Boeing-737', 70);
+
+insert into plane_model values ('Airbus-A310', 280, 850, 940, 6800, 12300);
+insert into plane_model values ('Airbus-A319', 280, 850, 925, 6845, 12500);
+insert into plane_model values ('Boeing-737', 189, 825, 880, 5660, 12400);
+insert into plane_model values ('Boeing-747', 520, 900, 988, 14200, 12300);
+insert into plane_model values ('Boeing-767', 370, 850, 950, 10420, 11885);
+insert into plane_model values ('Airbus-A380', 850, 900, 1020, 15200, 13100);
+insert into plane_model values ('Boeing-777', 550, 910, 955, 10200, 13100);
+
+insert into maintenance values (650, 5324, cast('2013-07-10' as DATE), 'Roberts', 'Baldric', 'OK');
+insert into maintenance values (529, 5649, cast('2018-08-23' as DATE), 'Arnold', 'Griffin', 'OK');
+insert into maintenance values (101, 9354, cast('2014-06-10' as DATE), 'Wilkerson', 'Donald', 'OK');
+insert into maintenance values (454, 4733, cast('2019-01-12' as DATE), 'Roberts', 'Baldric', 'FAIL');
+insert into maintenance values (423, 6648, cast('2017-04-17' as DATE), 'Reed', 'Godwin', 'OK');
+insert into maintenance values (735, 1462, cast('2017-04-26' as DATE), 'Godwin', 'Reed', 'OK');
+insert into maintenance values (543, 2826, cast('2014-03-11' as DATE), 'Arnold', 'Griffin', 'OK');
+insert into maintenance values (371, 9354, cast('2019-02-15' as DATE), 'Park', 'Tamil', 'OK');
+insert into maintenance values (228, 4338, cast('2015-11-07' as DATE), 'Reed', 'Godwin', 'FAIL');
+insert into maintenance values (489, 4733, cast('2016-05-18' as DATE), 'Roberts', 'Baldric', 'OK');
+insert into maintenance values (633, 7826, cast('2014-08-17' as DATE), 'Ricardo', 'Milos', 'OK');
+insert into maintenance values (401, 1488, cast('2018-02-27' as DATE), 'Potter', 'Grace', 'OK');
+
+insert into staff values (37817, 74, 'Pilot', 'Jacob', 'Lloyd', 1570);
+insert into staff values (85141, 74, 'Pilot', 'Stone,', 'Anthony', 1420);
+insert into staff values (74837, 74, 'Steward', 'Hampton', 'Robert', 1090);
+insert into staff values (87322, 15, 'Pilot', 'Arnold', 'McKennie', 1250);
+insert into staff values (61006, 15, 'Steward', 'Watts', 'Steven', 970);
+insert into staff values (74343, 70, 'Pilot', 'Melton', 'Howard', 1430);
+insert into staff values (47648, 70, 'Pilot', 'Riley', 'Jack', 1850);
+insert into staff values (40081, 70, 'Stewardess', 'Kellie', 'Sutton', 830);
+insert into staff values (61987, 70, 'Steward', 'Harris', 'Kristopher', 1170);
+insert into staff values (40764, 49, 'Pilot', 'Arnold', 'McKennie', 1620);
+insert into staff values (98133, 49, 'Steward', 'Jacob', 'Lloyd', 1150);
+insert into staff values (63933, 49, 'Stewardess', 'Tracey', 'Lane', 940);
+insert into staff values (78133, 34, 'Pilot', 'Jacob', 'Lloyd', 1380);
+insert into staff values (58933, 34, 'Steward', 'Melton', 'Howard', 720);
+
+insert into flight values (434325, 5324, cast('2013-07-10 12:10' as TIMESTAMP), cast('2013-07-10 15:50' as TIMESTAMP), 'London', 'Heathrow', 'Moscow', 'Domodedovo');
+insert into flight values (472659, 7826, cast('2014-08-17 09:30' as TIMESTAMP), cast('2014-08-17 21:10' as TIMESTAMP), 'Copenhagen', 'Kastrup', 'Los Angeles', 'Los Angeles International Airport');
+insert into flight values (692089, 1488, cast('2018-02-27 15:40' as TIMESTAMP), cast('2018-02-27 23:10' as TIMESTAMP), 'Copenhagen', 'Kastrup', 'Sydney', 'Sydney Airport');
+insert into flight values (915839, 4733, cast('2016-05-18 11:05' as TIMESTAMP), cast('2016-05-18 15:50' as TIMESTAMP), 'Paris', 'Paris Charles de Gaulle Airport', 'Moscow', 'Vnukovo');
+insert into flight values (987226, 9354, cast('2014-06-10 02:40' as TIMESTAMP), cast('2014-06-10 08:50' as TIMESTAMP), 'Larnaca', 'Larnaca International Airport', 'London', 'Glasgow');
+insert into flight values (753281, 1462, cast('2017-04-26 04:15' as TIMESTAMP), cast('2017-04-26 07:55' as TIMESTAMP), 'London', 'Heathrow', 'Moscow', 'Domodedovo');
+insert into flight values (772180, 6648, cast('2017-04-17 07:10' as TIMESTAMP), cast('2017-04-17 21:30' as TIMESTAMP), 'Turkey', 'Istanbul Atatürk Airport', 'New York', 'John F. Kennedy International Airport');
+insert into flight values (725867, 2826, cast('2014-03-11 16:40' as TIMESTAMP), cast('2014-03-11 21:05' as TIMESTAMP), 'Moscow', 'Domodedovo', 'Copenhagen', 'Kastrup');
+insert into flight values (813635, 5649, cast('2018-08-23 11:20' as TIMESTAMP), cast('2018-08-23 22:40' as TIMESTAMP), 'Los Angeles', 'Los Angeles International Airport', 'Klagenfurt', 'Klagenfurt Airport');
+insert into flight values (467328, 9354, cast('2019-02-15 14:10' as TIMESTAMP), cast('2019-02-15 20:50' as TIMESTAMP), 'Larnaca', 'Larnaca International Airport', 'London', 'Glasgow');
+
+insert into control_room values (434325, 'Nick', 'Goldman');
+insert into control_room values (472659, 'Arnold', 'Willsky');
+insert into control_room values (692089, 'Sam', 'Warshall');
+insert into control_room values (915839, 'Felex', 'Hoeffding');
+insert into control_room values (987226, 'John', 'Smith');
+insert into control_room values (753281, 'Sam', 'Warshall');
+insert into control_room values (772180, 'David', 'Huffman');
+insert into control_room values (725867, 'Huw', 'Wilf');
+insert into control_room values (813635, 'Felex', 'Hoeffding');
+insert into control_room values (467328, 'Arnold', 'Willsky');
+
+insert into boarding_pass values (314, 15, 1, cast('11:40' as TIME));
+insert into boarding_pass values (532, 23, 2, cast('09:00' as TIME));
+insert into boarding_pass values (487, 76, 4, cast('15:10' as TIME));
+insert into boarding_pass values (741, 32, 8, cast('10:30' as TIME));
+insert into boarding_pass values (828, 63, 6, cast('02:10' as TIME));
+insert into boarding_pass values (537, 32, 3, cast('04:40' as TIME));
+insert into boarding_pass values (871, 72, 2, cast('06:40' as TIME));
+insert into boarding_pass values (145, 4, 8, cast('16:10' as TIME));
+insert into boarding_pass values (543, 86, 16, cast('10:50' as TIME));
+insert into boarding_pass values (142, 64, 10, cast('13:40' as TIME));
+
+insert into luggage values (314, 15);
+insert into luggage values (532, 10);
+insert into luggage values (487, 0);
+insert into luggage values (741, 23);
+insert into luggage values (828, 0);
+insert into luggage values (537, 12);
+insert into luggage values (871, 14);
+insert into luggage values (145, 9);
+insert into luggage values (543, 14);
+insert into luggage values (142, 18);
+
+insert into passenger values (314, 435, 4672373582, 'Robert', 'Spencer', '+12342355678');
+insert into passenger values (532, 764, 9437693476, 'John', 'Seiferas', '+57635762576');
+insert into passenger values (487, 534, 6937847678, 'Robert', 'Stearns', '+25743985734');
+insert into passenger values (741, 656, 9735185657, 'Chris', 'Sarnak', '+63847589338');
+insert into passenger values (828, 579, 7642652656, 'Robert', 'Spencer', '+14784636727');
+insert into passenger values (537, 589, 1482578236, 'John', 'Dixon', '+44789734378');
+insert into passenger values (871, 353, 4593587387, 'Gregory', 'Jarvis', '+39437842743');
+insert into passenger values (145, 854, 3274893256, 'Ivan', 'Ivanov', '+89036572453');
+insert into passenger values (543, 659, 5238465385, 'Henry', 'Cohen', '+12344532546');
+insert into passenger values (142, 654, 8846167526, 'Chris', 'Sarnak', '+47598738955');
+
+insert into ticket values (435, 434325, 'ECONOMIC', 10000);
+insert into ticket values (764, 472659, 'ECONOMIC', 12000);
+insert into ticket values (534, 692089, 'PREMIUM', 16000);
+insert into ticket values (656, 915839, 'ECONOMIC', 11000);
+insert into ticket values (579, 987226, 'ECONOMIC', 15500);
+insert into ticket values (589, 753281, 'ECONOMIC', 14000);
+insert into ticket values (353, 772180, 'ECONOMIC', 13000);
+insert into ticket values (854, 725867, 'PREMIUM', 20000);
+insert into ticket values (659, 813635, 'PREMIUM', 19000);
+insert into ticket values (654, 467328, 'ECONOMIC', 10000);
