@@ -1,8 +1,9 @@
 SET search_path = airport, public;
 
 insert into luggage values (47365, 537, 16);
+create index on luggage(luggage_id);
 
-select distinct boarding_pass_no
+explain analyse select distinct boarding_pass_no
 from luggage
 where luggage_weight >= 16;
 
